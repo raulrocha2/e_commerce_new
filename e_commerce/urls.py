@@ -1,7 +1,7 @@
 """e_commerce URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.11/topics/http/urls/
+   https://docs.djangoproject.com/en/1.11/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from . import views
+#.views because file views.py it is in folder e_commerce and import method home_page
+
 
 urlpatterns = [
+    url(r'', views.home_page, name='home_page'),
     url(r'^admin/', admin.site.urls),
 ]
