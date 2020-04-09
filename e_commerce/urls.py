@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.conf.urls import url
 from django.contrib import admin
-from .views import home_page, about_page, contact_page
+from .views import home_page, about_page, contact_page, login_page, register_page
 #.views because file views.py it is in folder e_commerce and import method home_page
 
 
@@ -24,5 +24,7 @@ urlpatterns = [
     url('home/', home_page, name='home'),
     url('sobre/', about_page, name='about'),
     url('contato/', contact_page, name='contact'),
+    url('login/', login_page, name='login'),
+    url('register/', register_page, name='register'),
     url(r'^admin/', admin.site.urls),
 ]
