@@ -28,8 +28,8 @@ urlpatterns = [
     url('contato/', contact_page, name='contact'),
     url('login/', login_page, name='login'),
     url('register/', register_page, name='register'),
-    url('products', ProductListView.as_view()),
-    url('products_fbv', product_list_view.as_view),
+    url('produto', ProductListView.as_view()),
+    url('produto-fbv', product_list_view),
     url(r'^admin/', admin.site.urls),
 ]
 
