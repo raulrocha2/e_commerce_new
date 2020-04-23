@@ -6,7 +6,7 @@ class ProductQuerySet(models.query.QuerySet):
     def activate(self):
         return self.filter(active = True)
     def featured(self):
-        return self.filter(active = True)
+        return self.filter(featured = True, active = True)
 
 class ProductManager(models.Manager):
 
@@ -14,6 +14,7 @@ class ProductManager(models.Manager):
         return ProductQuerySet(self.model, using = self._db)
     def all(self):
         return self.get_queryset().activate()
+
     def featured(self):
         #return self.get_queryset().featured()
         return self.get_queryset().featured()
