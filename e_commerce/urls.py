@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
-from products.views import ProductListView, product_list_view, ProductDetailView, product_detail_view, ProductFeaturedListView, ProductFeaturedDetailView
+from products.views import ProductListView, ProductDetailSlugView, product_list_view, ProductDetailView, product_detail_view, ProductFeaturedListView, ProductFeaturedDetailView
 from django.conf.urls import url
 from django.contrib import admin
 from .views import home_page, about_page, contact_page, login_page, register_page
@@ -31,10 +31,12 @@ urlpatterns = [
     url(r'^register/', register_page, name='register'),
     url(r'destaque/', ProductFeaturedListView.as_view()),
     url(r'destaque/(?P<pk>[0-9]+)', ProductFeaturedDetailView.as_view()),
-    url(r'^produtos/(?P<pk>[0-9]+)', ProductDetailView.as_view()),
-    url(r'^produtos-fbv/(?P<pk>[0-9]+)', product_detail_view),
+    url(r'^produtos/', ProductDetailView.as_view()),
+    url(r'^produtos-fbv/', product_detail_view),
     url(r'^produtos', ProductListView.as_view()),
     url(r'^produtos-fbv', product_list_view),
+    url(r'produtos/(?P<slug>slug)/', ProductDetailSlugView.as_view()),
+    
 
     url(r'^admin/', admin.site.urls),
 ]
