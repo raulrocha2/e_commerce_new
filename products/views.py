@@ -49,7 +49,7 @@ class ProductDetailSlugView(DetailView):
 
         except Product.DoesNotExist:
 
-            raise Http404("Não encontrado")
+            raise Http404("Não encontrado slug")
 
         except Product.MultipleObjectsReturned:
             qs = Product.objects.filter(slug = slug, active = True)
