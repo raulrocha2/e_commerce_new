@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
-from products.views import ProductListView, ProductDetailSlugView, product_list_view, ProductDetailView, product_detail_view, ProductFeaturedListView, ProductFeaturedDetailView
-from django.conf.urls import url
+#from products.views import ProductListView, ProductDetailSlugView, product_list_view, ProductDetailView, product_detail_view, ProductFeaturedListView, ProductFeaturedDetailView
+from django.conf.urls import url, include
 from django.contrib import admin
 from .views import home_page, about_page, contact_page, login_page, register_page
 #.views because file views.py it is in folder e_commerce and import method home_page
@@ -29,13 +29,8 @@ urlpatterns = [
     url(r'^contato/', contact_page, name='contact'),
     url(r'^login/', login_page, name='login'),
     url(r'^register/', register_page, name='register'),
-    url(r'^destaque/', ProductFeaturedListView.as_view()),
-    url(r'^destaque/', ProductFeaturedDetailView.as_view()),
-   # url(r'^produtos/', ProductDetailView.as_view()),
-    url(r'^produtos-fbv/', product_detail_view),
-    #url(r'^produtos', ProductListView.as_view()),
-    url(r'^produtos-fbv', product_list_view),
-    url(r'^produtos/(?P<slug>[\w_-]+)/', ProductDetailSlugView.as_view(),),
+    url(r'^produtos/', include("products.urls")),
+
     
 
     url(r'^admin/', admin.site.urls),
