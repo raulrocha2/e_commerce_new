@@ -40,7 +40,7 @@ class Product(models.Model):  # product_category
     objects = ProductManager()
 
     def get_absolute_url(self):
-        print ("/produtos/{slug}".format(slug = self.slug))
+
         return "/produtos/{slug}".format(slug = self.slug)
 
     # python 3
