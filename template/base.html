@@ -7,12 +7,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-        <title>Home Page E Commerce!</title>
+        <title>Site E-Commerce!</title>
+        {% include 'base/css.html' %}
+        {% block base_head %}{% endblock base_head %}
     </head>
     <body>
-{% block content %}
-    <!-- Aqui vai tudo que é referente a home_page  -->
-{% endblock %}
+    {% include 'base/navbar.html' %}
+    {% block content %}
 
+    <!-- Aqui vai tudo que é referente a home_page  -->
+    {% endblock %}
+    {% include 'base/js.html' %}
     </body>
 </html>
