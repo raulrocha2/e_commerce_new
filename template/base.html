@@ -12,7 +12,7 @@
         {% block base_head %}{% endblock base_head %}
     </head>
     <body>
-    {% include 'base/navbar.html' %}
+    {% include 'base/navbar.html' with name_brand='Site E-Commerce'%}
     {% block content %}
 
     <!-- Aqui vai tudo que é referente a home_page  -->
