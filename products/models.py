@@ -2,6 +2,7 @@
 from django.db import models
 from .utils import unique_slug_generator
 from django.db.models.signals import pre_save
+from django.urls import reverse
 #Custom queryset
 class ProductQuerySet(models.query.QuerySet):
     def activate(self):
@@ -40,8 +41,8 @@ class Product(models.Model):  # product_category
     objects = ProductManager()
 
     def get_absolute_url(self):
-
-        return "/produtos/{slug}".format(slug = self.slug)
+        #return "/produtos/{slug}".format(slug = self.slug)
+        return reverse("products:detail", kwargs={"slug": self.slug})
 
     # python 3
     def __str__(self):
