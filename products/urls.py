@@ -4,7 +4,7 @@ from products.views import ProductListView, ProductDetailSlugView, product_list_
 app_name = "products"
 
 urlpatterns = [
-    url(r'^$', ProductListView.as_view()),
+    url(r'^$', ProductListView.as_view(), name='list'),
     #url(r'^produtos/', ProductDetailView.as_view()),
     #url(r'^produtos-fbv/', product_detail_view),
     # url(r'^produtos', ProductListView.as_view()),
