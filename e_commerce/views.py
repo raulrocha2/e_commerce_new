@@ -4,7 +4,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import ContactForm, LoginForm, RegisterForm
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, logout, login, get_user_model
 
 def home_page(request):
     context = {
@@ -57,12 +57,19 @@ def login_page(request):
             print(request.user.is_authenticated)
             login(request, user)
             print("Login válido")
+            print(request.user.is_authenticated)
             # Redireciona para uma página de sucesso.
-            return redirect("home/")
+            return redirect("/")
         else:
             #Retorna uma mensagem de erro de 'invalid login'.
             print("Login inválido")
     return render(request, "auth/login.html", context)
+def logout_page(request):
+    context = {
+        "content":"Voçê efetuou o logout com sucesso!!"
+    }
+    logout(request)
+    return render(request, "auth/logout.html", context)
 
 User = get_user_model()
 def register_page(request):
